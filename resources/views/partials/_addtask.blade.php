@@ -1,28 +1,29 @@
 <div class="modal">
   <!-- Modal Content -->
-  <form class="modal-content animate" action="/action_page.php">
+  <form class="modal-content animate" action="/tasks" method="POST">
+    @csrf
     <div class="container">
     <div class="header">
         <h1>New Task</h1>
-        <span onclick="document.getElementById('id01').style.display='none'"
+        <span onclick="window.location.href='/'"
 class="close" title="Close Modal">&times;</span>
         </div>
     <p>Enter the details of the new task</p>
     
     <hr>
     
-      <label for="task"><b>Task</b></label>
-      <input type="text" placeholder="Enter Task" name="task" required>
+      <label for="title"><b>Task</b></label>
+      <input type="text" placeholder="Enter Title" name="title" required>
 
       <label for="owner"><b>Owner</b></label>
       <input type="text" placeholder="Enter Owner" name="owner">
 
       <label for="status"><b>Status</b></label>
       <select name="status" id="status">
-        <option value="standby">Open</option>
-        <option value="in_progress">In Progress</option>
-        <option value="done">Done</option>
-        <option value="cancelled">Cancelled</option>
+        <option value="Open">Open</option>
+        <option value="In Progress">In Progress</option>
+        <option value="Completed">Completed</option>
+        <option value="Cancelled">Cancelled</option>
       </select>
 
       <label for="description">Description</label>
@@ -33,13 +34,13 @@ class="close" title="Close Modal">&times;</span>
 
       <label for="priority"><b>Priority</b></label>
       <select name="priority" id="priority">
-        <option value="low">Low</option>
-        <option value="medium">Medium</option>
-        <option value="high">High</option>
+        <option value="Low">Low</option>
+        <option value="Medium">Medium</option>
+        <option value="High">High</option>
       </select>
 
       <div class="clearfix">
-      <button type="button" class="cancelbtn">Cancel</button>
+      <button type="button" class="cancelbtn" onclick="window.location.href='/'">Cancel</button>
       <button type="submit" class="addbtn">Add Task</button>
     </div>
     </div>

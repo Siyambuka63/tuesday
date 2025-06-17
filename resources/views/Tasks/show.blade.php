@@ -2,7 +2,7 @@
 <html lang="en-US" >
     <head>
         <meta charset="UTF-8" />
-        <title> Add Task </title>
+        <title> {{ $task['title'] }} </title>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
