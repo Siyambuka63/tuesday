@@ -23,7 +23,7 @@
                 <div class = "left">
                     <label for="status"><b>Status</b></label>
                     <select name="status" id="status">
-                        <option value="Standby" {{ $task['status'] === 'Low' ? 'selected' : '' }}>Open</option>
+                        <option value="Open" {{ $task['status'] === 'Open' ? 'selected' : '' }}>Open</option>
                         <option value="In Progress" {{ $task['status'] === 'In Progress' ? 'selected' : '' }}>In
                             Progress</option>
                         <option value="Completed" {{ $task['status'] === 'Completed' ? 'selected' : '' }}>Completed</option>
