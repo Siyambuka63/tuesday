@@ -26,7 +26,7 @@
                         <option value="Standby" {{ $task['status'] === 'Low' ? 'selected' : '' }}>Open</option>
                         <option value="In Progress" {{ $task['status'] === 'In Progress' ? 'selected' : '' }}>In
                             Progress</option>
-                        <option value="Done" {{ $task['status'] === 'Completed' ? 'selected' : '' }}>Completed</option>
+                        <option value="Completed" {{ $task['status'] === 'Completed' ? 'selected' : '' }}>Completed</option>
                         <option value="Cancelled" {{ $task['status'] === 'Cancelled' ? 'selected' : '' }}>Cancelled
                         </option>
                     </select>

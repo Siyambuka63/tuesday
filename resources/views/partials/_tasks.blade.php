@@ -54,7 +54,7 @@
                                 </li>
                             </ul>
                             <div class="action">
-                                <a href="" title="">New Task </a>
+                                <a href = "/tasks/create" title="">New Task </a>
                                 <button class="btn btn-blue">New Board <span class="flaticon-add"></span></button>
                             </div>
                         </header>
