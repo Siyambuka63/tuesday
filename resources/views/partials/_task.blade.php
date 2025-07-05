@@ -5,22 +5,24 @@
         @method('PUT')
         <div class="container">
             <div class="header">
-                <input type="text" placeholder="Enter Title" value="{{ $task['title'] }}" id = "task" name = "title"
-                    required>
-                <span onclick="window.location.href='/'" class="close"
-                    title="Close Modal">&times;</span>
+                <input type="text" placeholder="Enter Title" value="{{ $task['title'] }}" id="task" name="title" required>
+                <span onclick="window.location.href='/'" class="close" title="Close Modal">&times;</span>
             </div>
             <hr>
-            <div class = "form-group">
-                <div class = "right">
+            <div class="form-group">
+                <div class="right">
                     <label for="description">Description</label>
                     <textarea name="description" id="description" cols="30" rows="10" placeholder="Enter description">{{ $task['description'] }}</textarea>
 
                     <label for="assigned_to"><b>Owner</b></label>
                     <input type="text" placeholder="Enter Owner" name="assigned_to" value="{{ $task['assigned_to'] }}">
+
+                    <!-- Add the Role Field Here -->
+                    <label for="role"><b>Role</b></label>
+                    <input type="text" placeholder="Enter Role" name="role" value="{{ $task['role'] }}">
                 </div>
                 
-                <div class = "left">
+                <div class="left">
                     <label for="status"><b>Status</b></label>
                     <select name="status" id="status">
                         <option value="Open" {{ $task['status'] === 'Open' ? 'selected' : '' }}>Open</option>

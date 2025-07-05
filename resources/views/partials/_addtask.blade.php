@@ -18,6 +18,9 @@ class="close" title="Close Modal">&times;</span>
       <label for="assigned_to"><b>Owner</b></label>
       <input type="text" placeholder="Enter Owner" name="assigned_to">
 
+      <label for="role"><b>Role</b></label>
+      <input type="text" placeholder="Enter Role" name="role">
+
       <label for="status"><b>Status</b></label>
       <select name="status" id="status">
         <option value="Open">Open</option>

@@ -14,7 +14,8 @@ class TaskController extends Controller
         ]);
     }
 
-    public function create(){
+    public function create()
+    {
         return view('tasks.create', [
             'tasks' => Task::latest()->get()
         ]);
@@ -30,8 +31,9 @@ class TaskController extends Controller
 
     public function store(Request $request)
     {
-         $request->validate([
+        $request->validate([
             'title' => 'required',
+            'role' => 'nullable|string', // Add validation for "role"
         ]);
 
         Task::create($request->except('_token'));
@@ -43,6 +45,7 @@ class TaskController extends Controller
     {
         $request->validate([
             'title' => 'required',
+            'role' => 'nullable|string', // Add validation for "role"
         ]);
 
         $task->update($request->except('_token'));
