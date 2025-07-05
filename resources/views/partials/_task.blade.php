@@ -16,8 +16,8 @@
                     <label for="description">Description</label>
                     <textarea name="description" id="description" cols="30" rows="10" placeholder="Enter description">{{ $task['description'] }}</textarea>
 
-                    <label for="owner"><b>Owner</b></label>
-                    <input type="text" placeholder="Enter Owner" name="owner" value="{{ $task['assigned_to'] }}">
+                    <label for="assigned_to"><b>Owner</b></label>
+                    <input type="text" placeholder="Enter Owner" name="assigned_to" value="{{ $task['assigned_to'] }}">
                 </div>
                 
                 <div class = "left">
