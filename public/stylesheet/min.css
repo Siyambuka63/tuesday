@@ -78,38 +78,44 @@ body {background: #191c2e;font-size: 13px;overflow-x: hidden;direction: ltr;text
     overflow: hidden;
     box-shadow: 0 0 10px #222;
 }
+
 .wrapper .menu-left {
     padding: 80px 20px;
 }
 
-.wrapper .menu-left .list li {
+.wrapper .menu-left .list form li {
+    display: flex;
+    justify-content: center;
     text-align: center;
     width: 100%;
     margin: 20px 10px;
 }
 
-.wrapper .menu-left .list li a {
+.wrapper .menu-left .list form li button {
     display: flex;
     flex-direction: column;
     color: #ccc;
     font-size: 13px;
+    border:none; 
+    background:none; 
+    cursor:pointer;
 }
 
-.wrapper .menu-left .list li a.active .icon:before {
+.wrapper .menu-left .list form li button.active .icon:before {
     color: #38c3d5;
 }
 
-.wrapper .menu-left .list li a.active .text {
+.wrapper .menu-left .list form li button.active .text {
     color: #fff;
 }
 
-.wrapper .menu-left .list li a .icon:before {
+.wrapper .menu-left .list form li button .icon:before {
     margin: 0;
     color: #777;
     font-size: 28px;
 }
 
-.wrapper .menu-left .list li a .text {
+.wrapper .menu-left .list form li button .text {
     margin: 10px 0;
 }
 
