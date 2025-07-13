@@ -2,12 +2,19 @@
 
 @php
     $groupedTasks = collect($tasks)->groupBy('status');
+
+    $orderedStatuses = ['Open', 'In Progress', 'Completed', 'Cancelled'];
 @endphp
 
 <div class="dashboard">
     <div class="row">
-        @foreach ($groupedTasks as $status => $taskGroup)
+        @foreach ($orderedStatuses as $status)
             @php
+                $taskGroup = $groupedTasks->get($status);
+
+                // Skip if there are no tasks in this group
+                if (!$taskGroup) continue;
+
                 $colour = match ($status) {
                     'Open' => 'yellow',
                     'In Progress' => 'blue',

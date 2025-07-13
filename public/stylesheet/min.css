@@ -200,6 +200,13 @@ body {background: #191c2e;font-size: 13px;overflow-x: hidden;direction: ltr;text
     overflow: hidden;
 }
 
+.main-content .dashboard .row {
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    height: 100%;
+}
+
 .main-content .dashboard .board > header {
     padding: 20px;
     background: #36394a;

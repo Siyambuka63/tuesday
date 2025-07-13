@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Task;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
@@ -11,14 +12,14 @@ class TaskController extends Controller
     public function index()
     {
         return view('tasks.index', [
-            'tasks' => Task::latest()->get()
+            'tasks' => Task::where('user_id', Auth::id())->latest()->get()
         ]);
     }
 
     // Show the form to create a new task
     public function create(){
         return view('tasks.create', [
-            'tasks' => Task::latest()->get()
+            'tasks' => Task::where('user_id', Auth::id())->latest()->get()
         ]);
     }
 
@@ -26,7 +27,7 @@ class TaskController extends Controller
     public function show(Task $task)
     {
         return view('tasks.show', [
-            'tasks' => Task::latest()->get(),
+            'tasks' => Task::where('user_id', Auth::id())->latest()->get(),
             'task' => $task
         ]);
     }
@@ -38,6 +39,9 @@ class TaskController extends Controller
         $request->validate([
             'title' => 'required',
         ]);
+
+        //Add the user_id to the request data
+        $request->merge(['user_id' => Auth::id()]);
 
         // Create a new task with the request data
         Task::create($request->except('_token'));
