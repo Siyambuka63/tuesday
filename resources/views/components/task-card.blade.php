@@ -2,8 +2,8 @@
 
 @php
     $colour = match ($task['priority']) {
-        'High' => 'blue',
-        'Medium' => 'red',
+        'High' => 'red',
+        'Medium' => 'yellow',
         'Low' => 'green',
         default => 'grey',
     };
@@ -12,7 +12,7 @@
     <div class="task {{ $colour }}">
         <header>
             <h3>{{ $task['title'] }}</h3>
-            <form action="/tasks/{{$task->id}}" method="POST" style="display:inline;">
+            <form action="/tasks/{{$task->id}}" method="POST" style="display:flex;">
                 @csrf
                 @method('DELETE')
                 <button type="submit" style="border:none; background:none; cursor:pointer;">
