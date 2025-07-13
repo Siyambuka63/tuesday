@@ -12,8 +12,6 @@ Before you begin, ensure you have the following installed:
 - Herd
 - Composer
 - MySQL, unless using SQLite
-- Node.js and npm (for compiling frontend assets, if applicable)
-- Laravel CLI (optional but recommended)
 
 ## 🛠️ Setup Instructions
 
@@ -66,7 +64,4 @@ Before you begin, ensure you have the following installed:
    ```
 
 10. **Run the development server**
-    
-    
-    
-
+    Use Herd to open site
