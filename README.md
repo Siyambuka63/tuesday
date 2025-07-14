@@ -4,12 +4,22 @@
 
 This is a Laravel-based web application designed to manage tasks in a Kanban board.
 
+## 🚀 Technologies and Frameworks Used
+
+- **Laravel** 10.x (PHP Framework)
+- **PHP** 8.1+
+- **MySQL** or **SQLite**
+- **Vite** (Frontend asset bundler)
+- **Blade** (Laravel’s templating engine)
+- **Tailwind CSS** (Frontend styling, optional)
+- **Node.js** & **npm** (for asset compilation)
+- **Composer** (PHP dependency manager)
+
 ## ✅ Prerequisites
 
 Before you begin, ensure you have the following installed:
 
 - PHP >= 8.1
-- Herd
 - Composer
 - MySQL, unless using SQLite
 
@@ -41,7 +51,9 @@ Before you begin, ensure you have the following installed:
    ```
 
 6. **Set up the database**
-   * If using SQLite, in the database folder create a file `database.sqlite` **OR**
+   * If using SQLite, in the database folder create a file `database.sqlite`
+   
+   **OR**
      
    * Create a database using MySQL, then open .env and update your DB credentials:
      ```env
@@ -64,4 +76,20 @@ Before you begin, ensure you have the following installed:
    ```
 
 10. **Run the development server**
-    Use Herd to open site
+    ```bash
+    php artisan serve
+    ```
+
+## 👥 How to Use the Application
+### 🧾 User Registration
+* Visit `/register` to create a new user account.
+* You’ll need to enter your name, email, and a secure password.
+
+### 🔐 Login
+* Go to `/login` to sign into the platform.
+
+### 📝 Tasks
+After logging in, you can:
+* Create new tasks (title, description, status, assignee, priority, due date and role)
+* Edit or delete your tasks
+* View your tasks
