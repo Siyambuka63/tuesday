@@ -13,16 +13,15 @@ return new class extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('title'); // Title of the task
             $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Foreign key to users table
             $table->string('status'); // pending, in_progress, completed
             $table->string('assigned_to')->nullable(); // Name of the person assigned to the task
+            $table->string('role')->nullable(); // Add the "role" column
             $table->string('priority'); // low, medium, high
-            $table->date('due_date')->nullable();
-            $table->longText('description')->nullable();
+            $table->date('due_date')->nullable(); // Due date for the task
+            $table->longText('description')->nullable(); // Description of the task
             $table->timestamps();
-            $table->string('role')->nullable()->after('assigned_to'); // Add the "role" column
-
         });
     }
 
@@ -32,7 +31,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('tasks');
-
     }
     
 };
