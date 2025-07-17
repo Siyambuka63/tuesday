@@ -97,30 +97,58 @@ After logging in, you can:
 * Edit or delete your tasks
 * View your tasks
 
-11. **🗂️ Project Structure**
-Key Files and Directories
+## 🗂️ Project Structure
+Below is an overview of the key directories and files that make up the application:
 
-**Controllers**
-* TaskController.php: Handles task-related logic such as creating, updating, deleting, and displaying tasks.
-* Controller.php: Base controller for the application.
+### 📁 `app/Http`
+#### 📂  **Controllers**
+* `Controller.php`: Base controller for the application.
+* `TaskController.php`: Handles task-related logic such as creating, updating, deleting, and displaying tasks.
+* `UserController.php`: Handles user sign up and login
 
-**Models**
-* Task.php: Represents the tasks table in the database. Includes fields like title, description, status, priority, assigned_to, and role.
-* User.php: Represents the users table for authentication and user management.
+#### 📂 **Middleware**
+* `Authenticate.php`: Ensures users are authenticated before accessing certain routes.
 
-**Views**
-* create.blade.php: Form for creating new tasks.
-* index.blade.php: Displays a list of tasks.
-* show.blade.php: Shows details of a single task.
-* task-card.blade.php: Displays individual task cards.
-* _addtask.blade.php: Partial view for adding tasks.
-* _tasks.blade.php: Partial view for listing tasks.
+### 📁 `app/Models`
+* `Task.php`: Represents the tasks table in the database. Includes fields like title, description, status, priority, assigned_to, and role.
+* `User.php`: Represents the users table for authentication and user management.
 
-**Database**
-* 2025_06_16_141705_create-tasks-table.php: Creates the tasks table.
-* 2025_07_05_212946_add_role_to_tasks_table.php: Adds the role column to the tasks table.
-* database.sqlite: SQLite database file (if using SQLite).
+### 📁 `database`
+* `database.sqlite`: Database file, if using SQLite.
+  
+#### 📂 Factories
+* `TaskFactory.php`: Generates fake task data.
+* `UserFactory`: Generates fake user data.
 
-**Configuration**
+#### 📂 Migrations
+* `2025_06_16_141705_create-tasks-table.php`: Creates the tasks table.
+
+#### 📂 Seeders
+* `DatabaseSeeder.php`: Calls other seeders to populate the database.
+
+### 📁 `resources/views`
+#### 📂 Components
+* `dashboard.blade.php`: Main dashboard layout.
+* `task-card.blade.php`: Represents an individual task card on the dashboard.
+
+#### 📂 Partials
+* `_addtask.blade.php`: Modal partial for adding new tasks.
+* `_header.blade.php`: Partial for header bar.
+* `_task.blade.php`:   Partial for displaying a single task.
+* `_tasks.blade.php`: Partial for the main section.
+
+#### 📂 Tasks
+* `create.blade.php`: Page to create new tasks.
+* `index.blade.php`: Displays a list of tasks.
+* `show.blade.php`: Shows details of a single task.
+
+#### 📂 Users
+* `login.blade.php`: User login form page.
+* `signup.blade.php`: User registration form page.
+
+### 📁 `routes`
+* `web.php`: Defines all web routes for the application, including task and user-related routes.
+
+⚙️ **Configuration**
 * .env: Environment configuration file for database and application settings.
 * vite.config.js: Configuration for Vite asset bundler.
