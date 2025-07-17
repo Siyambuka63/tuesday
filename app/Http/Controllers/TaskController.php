@@ -16,7 +16,6 @@ class TaskController extends Controller
         ]);
     }
 
-    // Show the form to create a new task
     public function create(){
         return view('tasks.create', [
             'tasks' => Task::where('user_id', Auth::id())->latest()->get()
@@ -35,9 +34,9 @@ class TaskController extends Controller
     // Create a new task or update an existing one
     public function store(Request $request)
     {
-        // Validate the request data
-        $request->validate([
+         $request->validate([
             'title' => 'required',
+            'role' => 'nullable|string', // Add validation for "role"
         ]);
 
         //Add the user_id to the request data
@@ -56,6 +55,7 @@ class TaskController extends Controller
         // Validate the request data
         $request->validate([
             'title' => 'required',
+            'role' => 'nullable|string', // Add validation for "role"
         ]);
 
         // Update the task with the request data

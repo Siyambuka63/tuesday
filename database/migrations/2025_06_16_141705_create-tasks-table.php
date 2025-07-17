@@ -21,6 +21,8 @@ return new class extends Migration
             $table->date('due_date')->nullable();
             $table->longText('description')->nullable();
             $table->timestamps();
+            $table->string('role')->nullable()->after('assigned_to'); // Add the "role" column
+
         });
     }
 
@@ -30,5 +32,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('tasks');
+
     }
+    
 };

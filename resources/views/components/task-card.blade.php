@@ -22,5 +22,6 @@
         </header>
         <div class="task-content">
             {{ $task['description'] }}
+            
         </div>
     </div>

@@ -15,7 +15,8 @@ class Task extends Model
         'status',
         'due_date',
         'priority',
-        'assigned_to'
+        'assigned_to',
+        'role', // This allows mass assignment for the "role" field
     ];
 
     // Relationship with User model
