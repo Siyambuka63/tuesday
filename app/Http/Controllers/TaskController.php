@@ -12,13 +12,15 @@ class TaskController extends Controller
     public function index()
     {
         return view('tasks.index', [
-            'tasks' => Task::where('user_id', Auth::id())->latest()->get()
+            'tasks' => Task::where('user_id', Auth::id())->latest()->get(),
+            'username' => Auth::user()->name
         ]);
     }
 
     public function create(){
         return view('tasks.create', [
-            'tasks' => Task::where('user_id', Auth::id())->latest()->get()
+            'tasks' => Task::where('user_id', Auth::id())->latest()->get(),
+            'username' => Auth::user()->name
         ]);
     }
 
@@ -27,7 +29,8 @@ class TaskController extends Controller
     {
         return view('tasks.show', [
             'tasks' => Task::where('user_id', Auth::id())->latest()->get(),
-            'task' => $task
+            'task' => $task,
+            'username' => Auth::user()->name
         ]);
     }
 
@@ -35,8 +38,7 @@ class TaskController extends Controller
     public function store(Request $request)
     {
          $request->validate([
-            'title' => 'required',
-            'role' => 'nullable|string', // Add validation for "role"
+            'title' => 'required'
         ]);
 
         //Add the user_id to the request data
@@ -54,8 +56,7 @@ class TaskController extends Controller
     {
         // Validate the request data
         $request->validate([
-            'title' => 'required',
-            'role' => 'nullable|string', // Add validation for "role"
+            'title' => 'required'
         ]);
 
         // Update the task with the request data

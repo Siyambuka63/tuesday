@@ -6,7 +6,7 @@
                         <div class="effect"></div>
                     </div>
                     <figcaption>
-                        <h2 class="text-md">Mohammad Rahmani</h2>
+                        <h2 class="text-md">{{ $username }}</h2>
                     </figcaption>
                 </figure>
             </div>

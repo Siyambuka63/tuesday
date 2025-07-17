@@ -39,7 +39,7 @@
                 <input type="checkbox" checked="checked" name="remember"> Remember me
             </label>
 
-            <p>Want to create an account? <a href="#" style="color:dodgerblue">Sign Up</a></p>
+            <p>Want to create an account? <a href="/signup" style="color:dodgerblue">Sign Up</a></p>
 
             <div class="clearfix">
                 <button type="button" class="cancelbtn">Cancel</button>
