@@ -149,6 +149,6 @@ Below is an overview of the key directories and files that make up the applicati
 ### 📁 `routes`
 * `web.php`: Defines all web routes for the application, including task and user-related routes.
 
-⚙️ **Configuration**
-* .env: Environment configuration file for database and application settings.
-* vite.config.js: Configuration for Vite asset bundler.
+### ⚙️ Configuration
+* `.env`: Environment configuration file for database and application settings.
+* `vite.config.js`: Configuration for Vite asset bundler.
