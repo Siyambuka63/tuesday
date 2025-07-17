@@ -18,4 +18,9 @@ class Task extends Model
         'assigned_to',
         'role', // This allows mass assignment for the "role" field
     ];
+
+    // Relationship with User model
+    public function user() {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }
