@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\UserSF; // Ensure the User model exists in the App\Models namespace
+
+// If the User model is located elsewhere, update the namespace accordingly, e.g.:
+// use App\User;
 use Illuminate\Support\Facades\Auth;
 
-class UserController extends Controller
+class UserControllerSF extends ControllerSF
 {
     // Show the signup form
     public function create()
@@ -24,7 +27,7 @@ class UserController extends Controller
         ]);
 
         // Create the user
-        User::create([
+        UserSF::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),

@@ -2,7 +2,6 @@
 
 @php
     $groupedTasks = collect($tasks)->groupBy('status');
-
     $orderedStatuses = ['Open', 'In Progress', 'Completed', 'Cancelled'];
 @endphp
 

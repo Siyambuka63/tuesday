@@ -7,10 +7,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+class UserSF extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
+
+    protected $table = 'users'; // Explicitly reference the correct table name
 
     /**
      * The attributes that are mass assignable.
@@ -48,10 +50,10 @@ class User extends Authenticatable
 
     // Relationship with Task model
     public function tasks() {
-        return $this->hasMany(Task::class, 'user_id');
+        return $this->hasMany(TaskSF::class, 'user_id');
     }
     public function boards()
     {
-        return $this->hasMany(Board::class);
+        return $this->hasMany(BoardSF::class);
     }
 }

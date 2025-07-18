@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Board;
+use App\Models\BoardSF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests; // Add this line
 
-class BoardController extends Controller
+class BoardControllerSF extends ControllerSF
 {
     use AuthorizesRequests; // Add this line
 
@@ -22,7 +22,7 @@ class BoardController extends Controller
             'name' => 'required|string|max:255',
         ]);
 
-        $board = Board::create([
+        $board = BoardSF::create([
             'name' => $request->name,
             'user_id' => Auth::id(),
         ]);
@@ -31,7 +31,7 @@ class BoardController extends Controller
         return redirect()->route('boards.index')->with('success', 'Board created successfully!');
     }
 
-    public function show(Board $board)
+    public function show(BoardSF $board)
     {
         $this->authorize('view', $board); // Ensure the user owns the board
 
@@ -42,7 +42,7 @@ class BoardController extends Controller
 
     public function index()
     {
-        $boards = Board::where('user_id', Auth::id())->with('tasks')->get(); // Retrieve all boards for the user
+        $boards = BoardSF::where('user_id', Auth::id())->with('tasks')->get(); // Retrieve all boards for the user
 
         return view('boards.index', compact('boards'));
     }

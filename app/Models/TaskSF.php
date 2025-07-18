@@ -5,9 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Task extends Model
+class TaskSF extends Model
 {
     use HasFactory;
+
+    protected $table = 'tasks'; // Explicitly reference the correct table name
 
     protected $fillable = [
         'title', // This allows assignment for the "title" field
@@ -23,13 +25,13 @@ class Task extends Model
 
     // Relationship with User model
     public function user() {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(UserSF::class, 'user_id');
         
     }
 
     // Define the relationship with boards
     public function board()
     {
-        return $this->belongsTo(Board::class);
+        return $this->belongsTo(BoardSF::class);
     }
 }

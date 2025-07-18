@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Board extends Model
+class BoardSF extends Model
 {
     use HasFactory;
 
@@ -14,6 +14,6 @@ class Board extends Model
     // Define the relationship with tasks
     public function tasks()
     {
-        return $this->hasMany(Task::class);
+        return $this->hasMany(TaskSF::class);
     }
 }

@@ -1,36 +1,37 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Models\BoardSF;
+use App\Models\TaskSF;
 use App\Models\Board;
-
-use App\Models\Task;
+use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class TaskController extends Controller
+class TaskControllerSF extends ControllerSF
 {
     // Show all tasks
     public function index()
     {
         return view('tasks.index', [
-            'tasks' => Task::where('user_id', Auth::id())->latest()->get(),
-            'username' => Auth::user()->name
+            'tasks' => TaskSF::where('user_id', Auth::id())->latest()->get(),
+            'username' => Auth::user()->name,
         ]);
     }
 
     public function create(){
         return view('tasks.create', [
-            'tasks' => Task::where('user_id', Auth::id())->latest()->get(),
+            'tasks' => TaskSF::where('user_id', Auth::id())->latest()->get(),
             'username' => Auth::user()->name,
-            'boards' => Board::where('user_id', Auth::id())->get(), // <-- add this line
+            'boards' => BoardSF::where('user_id', Auth::id())->get(),
         ]);
     }
 
     // Show the form to edit an existing task
-    public function show(Task $task)
+    public function show(TaskSF $task)
     {
         return view('tasks.show', [
-            'tasks' => Task::where('user_id', Auth::id())->latest()->get(),
+            'tasks' => TaskSF::where('user_id', Auth::id())->latest()->get(),
             'task' => $task,
             'username' => Auth::user()->name
         ]);
@@ -48,13 +49,13 @@ class TaskController extends Controller
 
         $request->merge(['user_id' => Auth::id()]);
 
-        Task::create($request->all());
+        TaskSF::create($request->all());
 
         return redirect()->route('boards.show', $request->board_id)->with('success', 'Task created successfully!');
     }
 
     // Update an existing task
-    public function update(Request $request, Task $task)
+    public function update(Request $request, TaskSF $task)
     {
         // Validate the request data
         $request->validate([
@@ -69,7 +70,7 @@ class TaskController extends Controller
     }
 
     // Delete an existing task
-    public function destroy(Task $task)
+    public function destroy(TaskSF $task)
     {
         $task->delete();
 
