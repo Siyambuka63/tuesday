@@ -63,8 +63,10 @@
                         </li>
                     </ul>
                     <div class="action">
-                        <a href = "/tasks/create" title="">New Task </a>
-                        <button class="btn btn-blue">New Board <span class="flaticon-add"></span></button>
+                        <a href="/tasks/create" title="">New Task</a>
+                        <a href="{{ route('boards.create') }}">
+                            <button class="btn btn-blue">New Board <span class="flaticon-add"></span></button>
+                        </a>
                     </div>
                 </header>
                 <x-dashboard :tasks="$tasks" />

@@ -28,4 +28,6 @@
 
         @include('partials._task')
     </body>
+    <h1>{{ $board->name }}</h1>
+    <x-dashboard :tasks="$tasks" />
 </html>

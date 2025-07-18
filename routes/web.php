@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\BoardController; // ✅ ADD THIS LINE
 
 // Show the signup form
 Route::get('/signup', [UserController::class, 'create']);
@@ -36,3 +37,11 @@ Route::delete('/tasks/{task}', [TaskController::class, 'destroy'])->middleware('
 
 // Show a specific task
 Route::get('/tasks/{task}', [TaskController::class, 'show'])->middleware('auth');
+
+// ✅ Board routes (make sure BoardController is imported above)
+Route::middleware(['auth'])->group(function () {
+    Route::get('/boards', [BoardController::class, 'index'])->name('boards.index'); // Route for dashboard
+    Route::get('/boards/create', [BoardController::class, 'create'])->name('boards.create');
+    Route::post('/boards', [BoardController::class, 'store'])->name('boards.store');
+    Route::get('/boards/{board}', [BoardController::class, 'show'])->name('boards.show');
+});

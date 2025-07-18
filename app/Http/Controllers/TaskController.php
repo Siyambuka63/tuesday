@@ -1,6 +1,7 @@
 <?php
-
 namespace App\Http\Controllers;
+
+use App\Models\Board;
 
 use App\Models\Task;
 use Illuminate\Http\Request;
@@ -20,7 +21,8 @@ class TaskController extends Controller
     public function create(){
         return view('tasks.create', [
             'tasks' => Task::where('user_id', Auth::id())->latest()->get(),
-            'username' => Auth::user()->name
+            'username' => Auth::user()->name,
+            'boards' => Board::where('user_id', Auth::id())->get(), // <-- add this line
         ]);
     }
 
@@ -37,18 +39,18 @@ class TaskController extends Controller
     // Create a new task or update an existing one
     public function store(Request $request)
     {
-         $request->validate([
-            'title' => 'required'
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'status' => 'required|in:Open,In Progress,Completed,Cancelled',
+            'priority' => 'required|in:Low,Medium,High',
+            'board_id' => 'required|exists:boards,id', // Ensure the board exists
         ]);
 
-        //Add the user_id to the request data
         $request->merge(['user_id' => Auth::id()]);
 
-        // Create a new task with the request data
-        Task::create($request->except('_token'));
+        Task::create($request->all());
 
-        // Redirect to the tasks page
-        return redirect('/');
+        return redirect()->route('boards.show', $request->board_id)->with('success', 'Task created successfully!');
     }
 
     // Update an existing task

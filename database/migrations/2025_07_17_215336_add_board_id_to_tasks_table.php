@@ -12,8 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('tasks', function (Blueprint $table) {
-            $table->unsignedBigInteger('user_id')->nullable(); 
-            $table->foreignId('board_id')->nullable()->constrained()->onDelete('cascade'); // Add board_id column
+            $table->foreignId('board_id')->nullable()->constrained()->onDelete('cascade'); // Make board_id nullable
         });
     }
 
